@@ -1,0 +1,28 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body>
+<script>
+//var constraints = { video: { width: 640, height: 480, frameRate: { min: 20, max: 30 }}};	
+//		navigator.mediaDevices.getUserMedia(constraints)
+//				.then(function(stream) {
+//				alert(1);
+//				})
+//				.catch(function(err) {
+//					alert(err.name + ": " + err.message);
+//				});
+navigator.mediaDevices.enumerateDevices()
+			.then(function(devices) {
+				alert("success");
+				devices.forEach(function(device) {
+					if (device.kind === 'videoinput') {
+						alert("deviceId: " + device.deviceId);
+					}
+				});
+			})
+			.catch(function(err) {
+				alert(err.name + ": " + err.message);
+			});
+</script>
+
+
+
+</body></html>
