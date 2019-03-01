@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>VisibilityChange Test</title>
+	<meta http-equiv=content-type content="text/html; charset=UTF8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<div id="result"></div>
+
+<script>
+function func(evn) {
+	var result = document.getElementById("result");
+	if(document.hidden){
+		result.innerHTML+="<br>hidden";
+	} else {
+		result.innerHTML+="<br>show";
+	}
+		
+}
+
+document.addEventListener("visibilitychange", func);
+	
+
+</script>
+</body>
+</html>
