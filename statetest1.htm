@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+
+current is statetst1 	<br><br>
+
+<a href="./statetest2.htm">Next Page</a>
+
+<!--
+<button onclick="replaceState()"> replaceState</button><br><br>
+
+<button onclick="pushState()"> replaceState</button><br><br>
+<div id="result"></div>
+-->
+
+<script>
+	function pushState(){
+		document.getElementById("result").innerHTML+="will pushState statetest3.htm<br>";
+		window.history.pushState({} , 'test3', './statetest3.htm');
+		
+	}
+	
+	function replaceState(){
+		document.getElementById("result").innerHTML+="will replaceState statetest3.htm<br>";
+		window.history.replaceState({} , 'test3', './statetest3.htm');
+	}
+</script>
+</body>
+</html>
