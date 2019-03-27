@@ -5,24 +5,30 @@
 <body>
 
 current is statetst2222222222@ 	<br><br>
-<button onclick="replaceState()"> replaceState</button><br><br>
 
 <button onclick="pushState()"> pushState</button><br><br>
+
+<button onclick="replaceState()"> replaceState</button><br><br>
 
 <a href="./statetest4.htm">Next Page</a><br><br>
 
 <div id="result"></div>
 
 <script>
+	var index=0;
 	function pushState(){
-		document.getElementById("result").innerHTML+="will pushState statetest3.htm<br>";
-		window.history.pushState({} , 'test3', './statetest3.htm');
+		index+=1;
+		url='./statetest3.htm?index='+index;
+		document.getElementById("result").innerHTML+="will pushState "+url+"<br>";
+		window.history.pushState({} , 'test3', url);
 		
 	}
 	
 	function replaceState(){
-		document.getElementById("result").innerHTML+="will replaceState statetest3.htm<br>";
-		window.history.replaceState({} , 'test3', './statetest3.htm');
+		index+=1;
+		url='./statetest3.htm?index='+index;
+		document.getElementById("result").innerHTML+="will replaceState "+url+"<br>";
+		window.history.pushState({} , 'test3', url);
 	}
 </script>
 </body>
