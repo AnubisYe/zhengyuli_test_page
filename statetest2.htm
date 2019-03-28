@@ -34,6 +34,10 @@ current is statetst2222222222@# 	<br><br>
 		document.getElementById("result").innerHTML+="will replaceState "+url+"<br>";
 		window.history.replaceState(stateObj , stateTitle, url);
 	}
+	
+	window.onpopstate = function(event) {
+  	document.getElementById("result").innerHTML+="location: " + document.location + ", state: " + JSON.stringify(event.state);
+	};
 </script>
 </body>
 </html>
