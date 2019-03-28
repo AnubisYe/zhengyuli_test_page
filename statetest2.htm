@@ -4,7 +4,7 @@
 </head>
 <body>
 
-current is statetst2222222222@ 	<br><br>
+current is statetst2222222222@# 	<br><br>
 
 <button onclick="pushState()"> pushState</button><br><br>
 
@@ -19,16 +19,20 @@ current is statetst2222222222@ 	<br><br>
 	function pushState(){
 		index+=1;
 		url='./statetest3.htm?index='+index;
+		stateObj = {pageid: "id:"+index,};
+		stateTitle = "title:"+index;
 		document.getElementById("result").innerHTML+="will pushState "+url+"<br>";
-		window.history.pushState({} , 'test3', url);
+		window.history.pushState(stateObj , stateTitle, url);
 		
 	}
 	
 	function replaceState(){
 		index+=1;
 		url='./statetest3.htm?index='+index;
+		stateObj = {pageid: "id:"+index,};
+		stateTitle = "title:"+index;
 		document.getElementById("result").innerHTML+="will replaceState "+url+"<br>";
-		window.history.pushState({} , 'test3', url);
+		window.history.replaceState(stateObj , stateTitle, url);
 	}
 </script>
 </body>
