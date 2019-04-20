@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<style type="text/css">
+		audio::-webkit-media-controls-enclosure {/*display:none;*/}
+		audio::-webkit-media-controls-panel {/*display:none;*/}
+		audio::-webkit-media-controls-play-button {/*display: none;*/}
+		audio::-webkit-media-controls-timeline {/*display: none;*/}
+		audio::-webkit-media-controls-current-time-display{/*display: none;*/}
+		audio::-webkit-media-controls-time-remaining-display {/*display: none;*/}
+		audio::-webkit-media-controls-mute-button {/*ok*/display: block;}
+		audio::-webkit-media-controls-toggle-closed-captions-button {display: block;}
+		audio::-webkit-media-controls-volume-slider {/*ok*/display: block;}
+		audio::-webkit-media-controls-fullscreen-button {display: block;}
+		audio::-webkit-media-controls-overlay-enclosure {display:block;}
+		audio::-webkit-media-text-track-container {display:block;}
+		audio::-webkit-media-controls-overlay-play-button {display:none;}
+		audio::-internal-media-controls-download-button {display:none;}
+	</style>
+</head>
+<body>
+	<audio id="h5audio_media"  height="100" width="100" src="./file/cunzai.mp3"  loop="true" controls></audio><br><br>
+	
+	<button onclick="doPlay()">play</button><br><br>
+	<button onclick="doPause()">pause</button><br><br>
+	<button onclick="canplayType()">canplayType</button>
+	<div id="testdiv"></div><br><br>
+	<a href="./file/cunzai.mp3">cunzai</a><br><br>
+	<a href="./file/1.mp4">mp4</a><br><br>
+	<a href="http://info.3g.qq.com">qq2</a>
+	<script type="text/javascript">
+	function doPlay(){
+
+		var a = document.getElementById('h5audio_media');
+		a.play();
+	}	
+	function doPause(){
+		document.getElementById('h5audio_media').pause();
+	}	
+	function canplayType(){
+		var result = !!document.getElementById('h5audio_media').canPlayType("audio/mpeg");
+		alert("can play audio/mpeg : "+result);
+	}
+	</script>
+
+	<br><br>
+<div id="audioControlDiv">
+  <button onclick="audioControl('off')">pauseWhenSwapOut</button><br><br>
+	<button onclick="audioControl('on')">playWhenSwapIn</button><br><br>
+</div>
+	<script>
+	function isMethodValid(methodName){
+		if(typeof tbs_bridge_for_demo == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
+			return false;
+		}
+		return true;
+	}
+	function audioControl(state){
+		var args = "{state:" + state +"}"
+		tbs_bridge_for_demo.jsExec("audioControl", args);
+	}
+	if (!isMethodValid("audioControl")) {
+		document.getElementById("audioControlDiv").style.display = "none";
+	}
+</script>
+
+</body>
+</html>
