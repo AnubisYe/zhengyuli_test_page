@@ -6,11 +6,13 @@
 <body>
 <body>
 
+<div>说明：version 1.0</div>
+
 <script>
 	function isMethodValid(methodName){
-		if(typeof nativeBridge == "undefined"
+		if(typeof tbs_bridge_for_demo == "undefined"
 		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
-		   || typeof tbs_bridge_for_demo.hasMethod("setTextSize") == "undefined"){
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
 			return false;
 		}
 		return true;
