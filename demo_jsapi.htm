@@ -1,0 +1,132 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<body>
+
+<script>
+	function isMethodValid(methodName){
+		if(typeof nativeBridge == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod("setTextSize") == "undefined"){
+			return false;
+		}
+		return true;
+	}
+</script>
+
+<fieldset id="setTextSizeFiledset">
+    <legend>调整字体大小</legend>
+    请先选择文字大小<br><br>
+    <select id="textSizeList" multiple="false" size="10" style="width:500px">  
+			<option value="50"> 最小（50%） </option>  
+			<option value="75"> 较小（75%） </option>  
+			<option value="100"> 正常（100%） </option>  
+			<option value="150"> 较大（150%） </option>  
+			<option value="200"> 超大（200%） </option>  
+		</select><br><br>
+		<button onclick="setTextSize()">设置字体大小</button>
+</fieldset>
+<script>
+	function setTextSize(){
+		var textSize = document.getElementById("textSizeList").value;
+		var args = "{size:" + textSize +"}"
+		tbs_bridge_for_demo.jsExec("setTextSize", args);
+	}
+	if(!isMethodValid("setTextSize")){
+		document.getElementById("setTextSizeFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset id="audioNofifyFiledset">
+    <legend>音频自动播放通知</legend>
+    <button onclick="audioNofify('on')">开启音频自动播放通知</button>&nbsp&nbsp<button onclick="audioNofify('off')">关闭音频自动播放通知</button>
+</fieldset>
+<script>
+	function audioNofify(state){
+		var args = "{state:" + state +"}"
+		tbs_bridge_for_demo.jsExec("audioNotify", args);
+	}
+	if(!isMethodValid("audioNotify")){
+		document.getElementById("audioNofifyFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset  id="reloadMetaFiledset">
+    <legend>再次获取自定义meta</legend>
+    <button onclick="reloadMeta('on')">再次获取自定义meta</button>
+</fieldset>
+<script>
+	function reloadMeta(){
+		tbs_bridge_for_demo.jsExec("reloadMeta", "");
+	}
+	if(!isMethodValid("reloadMeta")){
+		document.getElementById("reloadMetaFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset id="nightModeFiledset">
+    <legend>夜间模式</legend>
+    <button onclick="nightMode('on')">开启夜间模式</button>&nbsp&nbsp<button onclick="nightMode('off')">关闭夜间模式</button>
+</fieldset>
+<script>
+	function nightMode(state){
+		var args = "{state:" + state +"}"
+		tbs_bridge_for_demo.jsExec("nightMode", args);
+	}
+	if(!isMethodValid("nightMode")){
+		document.getElementById("nightModeFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset id="getOuterHTMLFiledset">
+    <legend>获取网页源码</legend>
+    <button onclick="getOuterHTML()">获取网页源码</button>
+</fieldset>
+<script>
+	function getOuterHTML(){
+		tbs_bridge_for_demo.jsExec("outerHTML", "");
+	}
+	if(!isMethodValid("outerHTML")){
+		document.getElementById("getOuterHTMLFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset id="contentCacheFiledset">
+    <legend>ContentCache</legend>
+    <button onclick="contentCache('on')">开启ContentCache</button>&nbsp&nbsp<button onclick="contentCache('off')">关闭ContentCache</button>
+</fieldset>
+<script>
+	function contentCache(state){
+		var args = "{state:" + state +"}"
+		tbs_bridge_for_demo.jsExec("contentCache", args);
+	}
+	if(!isMethodValid("contentCache")){
+		document.getElementById("contentCacheFiledset").style.display="none";
+	}
+</script>
+<br>
+
+<fieldset id="clearAllDataFiledset">
+    <legend>清除所有缓存</legend>
+    <button onclick="clearAllData()">清除所有缓存</button>
+</fieldset>
+<script>
+	function clearAllData(){
+		tbs_bridge_for_demo.jsExec("clearAllData", "");
+	}
+	if(!isMethodValid("clearAllData")){
+		document.getElementById("clearAllDataFiledset").style.display="none";
+	}
+</script>
+<br>
+
+</body>
+</html>
