@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<div id="focusAndPopupIMDiv"></div>
+<br><br><br>
+show keybaord when iframe onload in demo<br><br>
+<iframe src="./focusAndPopupIM_iframe.htm" style="width:300px;height:200px;" onload="focusAndPopupIM('text_input_iframe')"></iframe>
+<br><br><br>
+
+<script>
+	function isMethodValid(methodName){
+		if(typeof tbs_bridge_for_demo == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
+			return false;
+		}
+		return true;
+	}
+	function focusAndPopupIM(textId){
+		if(!isMethodValid("focusAndPopupIM")){
+			return;
+		}
+		var args = "{id:" + textId +"}"
+		tbs_bridge_for_demo.jsExec("focusAndPopupIM", args);
+	}
+	if (!isMethodValid("focusAndPopupIM")) {
+		document.getElementById("focusAndPopupIMDiv").innerHTML = "focusAndPopupIM is not valid";
+	} else {
+		document.getElementById("focusAndPopupIMDiv").innerHTML = "focusAndPopupIM is valid";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body onload="focusAndPopupIM('text_input')">
+show keybaord when onload in demo
+<br>text<input type="text"  name="word" value="" id="text_input"/><br><br>
+
+<div id="focusAndPopupIMDiv"></div>
+
+<script>
+	function isMethodValid(methodName){
+		if(typeof tbs_bridge_for_demo == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
+			return false;
+		}
+		return true;
+	}
+	function focusAndPopupIM(textId){
+		if(!isMethodValid("focusAndPopupIM")){
+			return;
+		}
+		var args = "{id:" + textId +"}"
+		tbs_bridge_for_demo.jsExec("focusAndPopupIM", args);
+	}
+	if (!isMethodValid("focusAndPopupIM")) {
+		document.getElementById("focusAndPopupIMDiv").innerHTML = "focusAndPopupIM is not valid";
+	} else {
+		document.getElementById("focusAndPopupIMDiv").innerHTML = "focusAndPopupIM is valid";
+	}
+</script>
+</script>
+</body>
+</html>
