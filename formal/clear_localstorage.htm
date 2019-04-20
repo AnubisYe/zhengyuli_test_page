@@ -22,7 +22,7 @@
 		return true;
 	}
 	function deleteOriginStorage(){
-		var args = "{url:" + location.href +"}"
+		var args = "{url:'" + location.href +"'}"
 		tbs_bridge_for_demo.jsExec("deleteOriginStorage", args);
 	}
 	if (!isMethodValid("deleteOriginStorage")) {
