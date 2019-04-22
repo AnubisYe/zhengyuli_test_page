@@ -39,9 +39,10 @@
 	}
 	if(!isMethodValid("setTextSize")){
 		document.getElementById("setTextSizeFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset id="audioNofifyFiledset">
     <legend>音频自动播放通知</legend>
@@ -54,9 +55,10 @@
 	}
 	if(!isMethodValid("audioNotify")){
 		document.getElementById("audioNofifyFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset  id="reloadMetaFiledset">
     <legend>再次获取自定义meta</legend>
@@ -68,9 +70,10 @@
 	}
 	if(!isMethodValid("reloadMeta")){
 		document.getElementById("reloadMetaFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset id="nightModeFiledset">
     <legend>夜间模式</legend>
@@ -83,9 +86,10 @@
 	}
 	if(!isMethodValid("nightMode")){
 		document.getElementById("nightModeFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset id="getOuterHTMLFiledset">
     <legend>获取网页源码</legend>
@@ -97,9 +101,10 @@
 	}
 	if(!isMethodValid("outerHTML")){
 		document.getElementById("getOuterHTMLFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset id="contentCacheFiledset">
     <legend>ContentCache</legend>
@@ -112,9 +117,10 @@
 	}
 	if(!isMethodValid("contentCache")){
 		document.getElementById("contentCacheFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
 
 <fieldset id="clearAllDataFiledset">
     <legend>清除所有缓存</legend>
@@ -126,9 +132,28 @@
 	}
 	if(!isMethodValid("clearAllData")){
 		document.getElementById("clearAllDataFiledset").style.display="none";
+	} else {
+		document.write("<br>")
 	}
 </script>
-<br>
+
+<fieldset id="fileChooserUniteFiledset">
+    <legend>设置文件选择统一接口调用</legend>
+    <button onclick="fileChooserUnite('on')">开启统一调用</button>&nbsp&nbsp<button onclick="fileChooserUnite('off')">关闭统一调用</button>
+    <br>
+</fieldset>
+<script>
+	function fileChooserUnite(state){
+		var args = "{state:" + state +"}"
+		tbs_bridge_for_demo.jsExec("fileChooserUnite", args);
+	}
+	if(!isMethodValid("fileChooserUnite")){
+		document.getElementById("fileChooserUniteFiledset").style.display="none";
+	} else {
+		document.write("<br>")
+	}
+</script>
+
 
 </body>
 </html>
