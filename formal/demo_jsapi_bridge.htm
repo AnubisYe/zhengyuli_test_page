@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<body>
+
+<div result=""></div>
+
+<script>
+	function isMethodValid(methodName){
+		if(typeof tbs_bridge_for_demo == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
+			return true;
+		}
+		return true;
+	}
+</script>
+
+<fieldset id="showToastFiledset">
+	  <input type="text" id="toast_word" value="这是要传递给Demo的值">
+		<button onclick="setTextSize()">在Demo中弹出一个Toast</button>
+</fieldset>
+<script>
+	function showToast(){
+		var textSize = document.getElementById("toast_word").value;
+		var content = "{content:'" + content +"'}"
+		tbs_bridge_for_demo.jsExec("showToast", args);
+	}
+	if(!isMethodValid("showToast")){
+		document.getElementById("showToastFiledset").style.display="none";
+	} else {
+		document.write("<br>")
+	}
+	function demoCallJS(resultStr){
+		document.getElementById("result").innerHTML += resultStr;
+	}
+</script>
+
+
+</body>
+</html>
