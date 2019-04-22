@@ -20,13 +20,13 @@
 </script>
 
 <fieldset id="showToastFiledset">
-	  <input type="text" id="toast_word" value="这是要传递给Demo的值" style="border:2px solid"><br><br>
+	  <input type="text" id="toast_word" value="传递给Demo的值" style="border:2px solid"><br><br>
 		<button onclick="showToast()">在Demo中弹出提示</button>
 </fieldset>
 <script>
 	function showToast(){
 		var textSize = document.getElementById("toast_word").value;
-		var content = "{content:'" + content +"'}"
+		var args = "{content:'" + content +"'}"
 		tbs_bridge_for_demo.jsExec("showToast", args);
 	}
 	if(!isMethodValid("showToast")){
