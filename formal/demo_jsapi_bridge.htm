@@ -13,7 +13,7 @@
 		if(typeof tbs_bridge_for_demo == "undefined"
 		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
 		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
-			return true;
+			return false;
 		}
 		return true;
 	}
@@ -21,7 +21,7 @@
 
 <fieldset id="showToastFiledset">
 	  <input type="text" id="toast_word" value="这是要传递给Demo的值" style="border:2px solid"><br><br>
-		<button onclick="setTextSize()">在Demo中弹出提示</button>
+		<button onclick="showToast()">在Demo中弹出提示</button>
 </fieldset>
 <script>
 	function showToast(){
