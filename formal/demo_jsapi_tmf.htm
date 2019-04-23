@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<body>
+
+<script>
+	function isMethodValid(methodName){
+		if(typeof tbs_bridge_for_demo == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod == "undefined"
+		   || typeof tbs_bridge_for_demo.hasMethod(methodName) == "undefined"){
+			return false;
+		}
+		return true;
+	}
+</script>
+
+<fieldset id="setTextSizeFiledset">
+    <legend>调整字体大小</legend>
+    请先选择文字大小<br><br>
+    <select id="textSizeList">  
+			<option value="50"> 字体比例（50%） </option>  
+			<option value="75"> 字体比例（75%） </option>  
+			<option value="100" selected> 字体比例（100%） </option>  
+			<option value="125"> 字体比例（125%） </option>  
+			<option value="150"> 字体比例（150%） </option>  
+			<option value="175"> 字体比例（175%） </option> 
+			<option value="200"> 字体比例（200%） </option>  
+		</select><br><br>
+		<button onclick="setTextSize()">设置字体大小</button>
+</fieldset>
+<script>
+	function setTextSize(){
+		var textSize = document.getElementById("textSizeList").value;
+		var args = "{size:" + textSize +"}"
+		tbs_bridge_for_demo.jsExec("setTextSize", args);
+	}
+	if(!isMethodValid("setTextSize")){
+		document.getElementById("setTextSizeFiledset").style.display="none";
+	} else {
+		document.write("<br>")
+	}
+</script>
+
+<fieldset id="showToastFiledset">
+	  <legend>JS Bridge</legend>
+	  <div id="result">test</div>
+	  <input type="text" id="toast_word" value="传递给Demo的值" style="border:2px solid"><br><br>
+		<button onclick="showToast()">在Demo中弹出提示</button>
+</fieldset>
+<script>
+	var index=0;
+	function showToast(){
+		index+=1;
+		var content = document.getElementById("toast_word").value;
+		var args = "{content:'" + content +"',callback:demoCallJS('Called From Java[" + index + "]')}"
+		tbs_bridge_for_demo.jsExec("showToast", args);
+	}
+	if(!isMethodValid("showToast")){
+		document.getElementById("showToastFiledset").style.display="none";
+	} else {
+		document.write("<br>")
+	}
+	function demoCallJS(resultStr){
+		document.getElementById("result").innerHTML += resultStr;
+	}
+</script>
+
+
+</body>
+</html>
