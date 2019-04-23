@@ -5,7 +5,7 @@
 </head>
 <body>
 <body>
-
+<div>说明：version 1.0.0</div>
 <script>
 	function isMethodValid(methodName){
 		if(typeof tbs_bridge_for_demo == "undefined"
@@ -46,16 +46,17 @@
 
 <fieldset id="showToastFiledset">
 	  <legend>JS Bridge</legend>
-	  <div id="result">test</div>
+	  <div id="result"></div>
 	  <input type="text" id="toast_word" value="传递给Demo的值" style="border:2px solid"><br><br>
 		<button onclick="showToast()">在Demo中弹出提示</button>
 </fieldset>
 <script>
 	var index=0;
 	function showToast(){
+		document.getElementById("result").innerHTML="";
 		index+=1;
 		var content = document.getElementById("toast_word").value;
-		var args = "{content:'" + content +"',callback:demoCallJS('Called From Java[" + index + "]')}"
+		var args = "{content:'" + content +"',callback:'demoCallJS(\"Called From Java[" + index + "]\")'}"
 		tbs_bridge_for_demo.jsExec("showToast", args);
 	}
 	if(!isMethodValid("showToast")){
