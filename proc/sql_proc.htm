@@ -1,0 +1,16 @@
+﻿<html lang="zh-cn" class="android">
+<body>
+	
+	test1<br>
+<script>
+var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+db.transaction(function (tx) {
+   tx.executeSql('CREATE TABLE Table0 (Col0 DEFAULT (1 BETWEEN 1 AND CURRENT_TIMESTAMP))');
+   tx.executeSql('INSERT INTO Table0 DEFAULT VALUES');
+});
+
+</script>
+	test2<br>
+</body>
+</html>
