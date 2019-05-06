@@ -1,0 +1,45 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<div id="contain">
+        <ul id="list">
+            <li class="data" id="list1">dfsdfsdf2341</li>
+        </ul>
+    </div>
+	<button onclick="selectText()">选中文本</button>&nbsp;&nbsp;<button onclick="copyText()">拷贝选中的文字</button>
+	<br><br>
+	<input type="text" id="text1">
+<script>
+ function selectText(){
+    var range = document.createRange();
+    var startElement=document.getElementById("list1").firstChild;
+    var endElement=document.getElementById("list1").lastChild;
+    range.setStart(startElement, 0);
+    range.setEnd(endElement, endElement.length);
+	  var sel = window.getSelection();
+    sel.addRange(range);
+ }
+ 
+ function copyText(){
+    var sel = window.getSelection();
+    if(sel.type == "Range") {
+    	document.execCommand("copy");
+    } else {
+    	alert("未选中文字");
+    }
+ }
+ 
+ var textElement = document.getElementById('text1');
+
+ textElement.addEventListener('paste', (event) => {
+    let paste = (event.clipboardData || window.clipboardData).getData('text');
+    paste = paste.toUpperCase();
+ 
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return false;
+    selection.deleteFromDocument();
+    selection.getRangeAt(0).insertNode(document.createTextNode(paste));
+
+    event.preventDefault();
+  });
+</script>
