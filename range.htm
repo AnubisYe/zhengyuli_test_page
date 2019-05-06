@@ -3,10 +3,10 @@
 </head>
 <div id="contain">
         <ul id="list">
-            <li class="data" id="list1">dfsdfsdf2341</li>
+            <li class="data" id="list1">abcdefg123456</li>
         </ul>
     </div>
-	<button onclick="selectText()">选中文本</button>&nbsp;&nbsp;<button onclick="copyText()">拷贝选中的文字</button>
+	<button onclick="selectText()">select text</button>&nbsp;&nbsp;<button onclick="copyText()">copy text</button>
 	<br><br>
 	<input type="text" id="text1">
 <script>
@@ -25,7 +25,7 @@
     if(sel.type == "Range") {
     	document.execCommand("copy");
     } else {
-    	alert("未选中文字");
+    	alert("not select text!");
     }
  }
  
