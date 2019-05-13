@@ -1,0 +1,12 @@
+{
+  "polyfill.js": "assets/js/polyfill_736e5084.js",
+  "react.js": "assets/js/react_6947af9a.js",
+  "runtime.js": "assets/js/runtime_b01c1e66.js",
+  "index.css": "assets/css/index_f8b914ae.css",
+  "index.js": "assets/js/index_eeef6a78.js",
+  "test.css": "assets/css/test_54501fca.css",
+  "test.js": "assets/js/test_6a7042af.js",
+  "assets/images/photoswipe.css": "assets/images/preloader_e34aafbb.gif",
+  "index.html": "index.html",
+  "test.html": "test.html"
+}
