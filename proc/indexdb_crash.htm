@@ -1,0 +1,53 @@
+<head>
+	    <meta http-equiv="refresh" content="1">
+</head>
+<script>
+function __cass__0__(__cass__1__) {
+};
+function __cass__2__() {
+var __cass__3__;
+try{__cass__3__=__cass__13__.transaction('storename', 'readonly');}catch(__cass__1__){};
+var __cass__4__;
+try{__cass__4__=__cass__3__.objectStore('storename');}catch(__cass__1__){};
+var __cass__5__;
+try{__cass__5__=__cass__4__.index('idxname');}catch(__cass__1__){};
+var __cass__6__;
+try{__cass__6__=IDBKeyRange.only('\u0001\uffff\uffff\uffff\uffff\u3f00');}catch(__cass__1__){};
+var __cass__7__;
+try{__cass__7__=__cass__5__.createSphereBuffers(__cass__6__);}catch(__cass__1__){};
+try{__cass__7__.onerror = __cass__0__;}catch(__cass__1__){};
+try{__cass__7__.onsuccess = function() {};}catch(__cass__1__){};
+try{__cass__3__.oncomplete = function() {};}catch(__cass__1__){};
+}
+function __cass__8__() {
+var __cass__3__ = __cass__13__.transaction('storename', 'readwrite');
+var __cass__4__ = __cass__3__.objectStore('storename');
+var __cass__9__ = {'primarykey': 'pk', 'indexkey': '\u0001\uffff\uffff\uffff\uffff\u3f00'};
+var __cass__10__ = __cass__4__.put(__cass__9__);
+try{__cass__10__.onerror = __cass__0__;}catch(__cass__1__){}
+try{__cass__3__.onabort = __cass__0__;}catch(__cass__1__){}
+try{__cass__3__.onerror = __cass__0__;}catch(__cass__1__){}
+try{__cass__8__({name: "302", code: 302, expectResendPost: false, body: __cass__10__}).oncomplete = __cass__2__;}catch(__cass__1__){}
+};
+function __cass__11__() {
+var __cass__10__ = indexedDB.open('dbname', 1);
+try{__cass__10__.onsuccess = function(__cass__12__) {
+try{__cass__13__ = __cass__12__.target.result;}catch(__cass__1__){}
+try{__cass__8__();}catch(__cass__1__){}
+};}catch(__cass__1__){}
+try{__cass__10__.onupgradeneeded = function(__cass__12__) {
+try{__cass__13__ = __cass__12__.target.result;}catch(__cass__1__){}
+var __cass__4__ = __cass__13__.createObjectStore('storename', {keyPath: 'primarykey'});
+var __cass__5__ = __cass__4__.createIndex('idxname', __cass__14__(__cass__4__.result, 0));
+};}catch(__cass__1__){}
+try{__cass__10__.onfailure = __cass__0__;}catch(__cass__1__){}
+try{__cass__10__.onerror = __cass__0__;}catch(__cass__1__){}
+}
+function __cass__14__() {
+var __cass__10__ = indexedDB.deleteDatabase('dbname');
+try{__cass__10__.onsuccess = __cass__11__;}catch(__cass__1__){}
+try{__cass__10__.onerror = __cass__0__;}catch(__cass__1__){}
+try{__cass__10__.onblocked = __cass__0__;}catch(__cass__1__){}
+};
+try{__cass__14__();}catch(__cass__1__){}
+</script>
