@@ -1,0 +1,31 @@
+<html><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+
+	text<br>
+	<input type="text" name="name_word" id="id_word" onpaste="pasteFun()" oncopy="copyFun()" oncut="cutFun()" value=""><br><br>
+	<div id="result"></div>
+<script>
+var index = 1;
+function pasteFun() {
+    document.getElementById("result").innerHTML += "你粘贴了文本!" + index + "<br>";
+    index++;
+}
+function copyFun() {
+    document.getElementById("result").innerHTML += "你复制了文本!" + index + "<br>";
+    index++;
+}
+function cutFun() {
+    document.getElementById("result").innerHTML += "你剪切了文本!" + index + "<br>";
+    index++;
+}
+</script>
+
+<br><br><br><br>
+	text return false<br>
+	<input type="text" name="name_word2" id="id_word2" onpaste="return false;" oncopy="return false;" oncut="return false;" value=""><br><br>
+	<div id="result2"></div>
+
+
+</body></html>
