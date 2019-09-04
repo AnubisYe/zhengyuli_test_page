@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <title></title>
+  <style>
+    .container {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>视频播放6</h2>
+  <div class="container">
+    <video id="v1" src="https://res.imtt.qq.com/qqbrowser_x5/zhengyuli/file/1.mp4" controls width="480" x5-video-player-type="h5-page"></video><br><br>
+    <video id="v2" src="https://res.imtt.qq.com/qqbrowser_x5/zhengyuli/file/H264_320_AAC_64.3gp" controls width="480" x5-video-player-type="h5-page"></video><br><br>
+    <!--<a id="btn" class="btn" href="#"><img src="img/play.png"></a> -->
+     <button onclick="onPlay()">play</button><br><br>
+    <button onclick="onPause()">pause</button><br><br>
+    <button onclick="onSeek()">seek</button>	<br><br>
+    <button onclick="setMute()">setMute</button>	<br><br>
+    <button onclick="openMutedAtt()">openMutedAtt</button>	<br><br>
+  </div>
+  <script>
+    function onPlay(){
+    	v1.play();
+    }
+    
+    function onPause(){
+    	v1.pause();
+    }
+    
+    function onSeek(){
+    	v1.currentTime=v1.currentTime+20;
+    }
+    function setMute(){
+    	v1.muted=!v1.muted
+    }
+    function openMutedAtt(){
+    	v1.setAttribute("muted",true)
+  	}
+  </script>
+</body>
+</html>
