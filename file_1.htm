@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<script>
+function previewFile() {
+	document.getElementById("result").innerHTML="";
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+    preview.style="display:block;"
+  } else {
+    preview.src = "";
+    preview.style="display:none;"
+    document.getElementById("result").innerHTML="no file";
+  }
+}
+</script>
+<input type="file" onchange="previewFile()"><br>
+<img src="" height="200" alt="Image preview..." style="display:none">
+<div id="result"></div>
+</body>
+</html>
