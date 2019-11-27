@@ -7,6 +7,7 @@
 function previewFile() {
 	document.getElementById("result").innerHTML="";
   var preview = document.querySelector('img');
+  preview.style="display:none;"
   var file    = document.querySelector('input[type=file]').files[0];
   var reader  = new FileReader();
 
@@ -21,12 +22,11 @@ function previewFile() {
     document.getElementById("result").innerHTML="read file...";
   } else {
     preview.src = "";
-    preview.style="display:none;"
     document.getElementById("result").innerHTML="no file";
   }
 }
 </script>
-w
+12
 <input type="file" onchange="previewFile()"><br>
 <img src="" height="200" alt="Image preview..." style="display:none">
 <div id="result"></div>
