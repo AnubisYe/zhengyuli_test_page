@@ -16,6 +16,27 @@ function previewFile() {
     document.getElementById("result").innerHTML=preview.src;
     preview.style="display:block;"
   }
+  
+  reader.onabort = function () {
+		document.getElementById("result").innerHTML+="<br>onabort";
+  }
+  
+  reader.onerror = function () {
+		document.getElementById("result").innerHTML+="<br>onerror";
+  }
+  
+  reader.onload = function () {
+		document.getElementById("result").innerHTML+="<br>onload";
+  }
+  
+  reader.onloadstart = function () {
+		document.getElementById("result").innerHTML+="<br>onloadstart";
+  }
+  
+  reader.onprogress = function () {
+		document.getElementById("result").innerHTML+="<br>onprogress";
+  }
+  
 
   if (file) {
     reader.readAsDataURL(file);
@@ -26,9 +47,9 @@ function previewFile() {
   }
 }
 </script>
-12
+13
 <input type="file" onchange="previewFile()"><br>
 <img src="" height="200" alt="Image preview..." style="display:none">
-<div id="result"></div>
+<div id="result" style="width:100%"></div>
 </body>
 </html>
