@@ -12,6 +12,7 @@ function previewFile() {
 
   reader.onloadend = function () {
     preview.src = reader.result;
+    document.getElementById("result").innerHTML=preview.src;
   }
 
   if (file) {
@@ -24,6 +25,7 @@ function previewFile() {
   }
 }
 </script>
+w
 <input type="file" onchange="previewFile()"><br>
 <img src="" height="200" alt="Image preview..." style="display:none">
 <div id="result"></div>
