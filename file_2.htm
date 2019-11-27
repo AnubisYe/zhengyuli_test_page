@@ -22,7 +22,7 @@ function previewFile() {
   }
   
   reader.onerror = function (event) {
-		document.getElementById("result").innerHTML+="<br>onerror";
+		document.getElementById("result").innerHTML+="<br>onerror,code:"+event.target.error.code;
   }
   
   reader.onload = function (event) {
@@ -47,7 +47,7 @@ function previewFile() {
   }
 }
 </script>
-15
+16
 <input type="file" onchange="previewFile()"><br>
 <img src="" height="200" alt="Image preview..." style="display:none">
 <div id="result" style="width:100%"></div>
