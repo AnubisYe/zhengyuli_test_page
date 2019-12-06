@@ -1,0 +1,65 @@
+<html><head>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">-->
+</head>
+<body>
+<script>
+	function addBorderRadius(){
+		setCSSStyle("border-radius:5px;");
+	}
+</script>
+
+<div style="width:200px;height:100px;border:1px solid red;" onclick="setSameToUA();">set ua color</div>
+
+single:<input size="46" id="file1" name="word" type="file" /><br><br>
+
+multi:<input size="46" id="file2" name="word" type="file" multiple/><br><br>
+
+<!--camcorder:<input type="file" accept="video/*" id="file3" capture="camcorder"> <br><br>
+
+camera:<input type="file" accept="image/*" id="file4" capture="camera"> <br><br>
+
+microphone:<input type="file" accept="audio/*" id="file5" capture="microphone"> <br><br>
+
+accetpt:<input type="file" accept="image/*,audio/*,video/*" id="file6"> <br><br>-->
+
+<style id="textStyle">
+</style>
+<script>
+	function setCSSStyle(css_value){
+		css = "input[type=\"button\"], input[type=\"submit\"], input[type=\"reset\"], input[type=\"file\"]::-webkit-file-upload-button, input[type=\"color\"], button {"
+		css += css_value + "}";
+		if(css_value == ""){
+			document.getElementById("textStyle").innerHTML=css;
+		}else{
+			document.getElementById("textStyle").innerHTML +=css;
+		}
+	}
+	function setDefault(){
+		setCSSStyle("");
+		setEleDisabled(false);
+	}
+	function setSameToUA(){
+		setCSSStyle("background-color:buttonface;");
+		css = "input[type=\"color\"]:disabled {background-color:rgb(235,235,228);}"
+		document.getElementById("textStyle").innerHTML +=css;
+	}
+	function setRedBackgroundColor(){
+		setCSSStyle("background-color:red;");
+	}
+	function setBorder(border_width){
+		var str = "border:"+border_width+"px solid;";
+		setCSSStyle(str);
+	}
+	function setEleDisabled(disableValue){
+		var inputList = document.getElementsByTagName("input");
+		if(inputList){
+			for(var i = 0; i < inputList.length; i++){
+				inputList[i].disabled=disableValue
+			}
+		}
+		var button1 = document.getElementById("button1");
+		button1.disabled=disableValue
+	}
+	setSameToUA();
+</script>
+</body></html>
