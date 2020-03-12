@@ -140,6 +140,16 @@ function disposeAllFeature(all_data){
 	changeTbsFeatureSupported(all_data.css, "touch-action property", "Tbs|5.1", "y");
 	changeTbsFeatureSupported(all_data.css, "Box-sizing", "Tbs|4.9", "y");
 	changeTbsFeatureSupported(all_data.css, "Box-sizing", "Tbs|5.0", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.2", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.3", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.4", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.5", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.6", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.7", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.8", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|4.9", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|5.0", "y");
+	changeTbsFeatureSupported(all_data.css, "rem (root em) units", "Tbs|5.1", "y");
 	changeTbsFeatureSupported(all_data.others, "Upgrade Insecure Requests", "Tbs|4.9", "y");
 	changeTbsFeatureSupported(all_data.others, "Upgrade Insecure Requests", "Tbs|5.0", "y");
 	changeTbsFeatureSupported(all_data.others, "XHTML served as application", "Tbs|4.9", "y");
