@@ -1,0 +1,87 @@
+<html><head>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">-->
+</head>
+<body>
+<div id="result"></div>
+<br><br>
+<!--
+<fieldset>
+    <legend>load完成设置</legend>
+    数量:<input type="number" id="loadNum" value="2">
+    <br><button onclick="setWindowOnLoad()">加载完成弹出多个窗口</button>
+    <br><button onclick="clearOpenWindowOnLoad()">清除</button>
+</fieldset>
+<br><br>
+-->
+<fieldset>
+    <legend>单窗口设置</legend>
+    <button onclick="delayOpenWindow()">弹出单个窗口</button>
+</fieldset>
+<br><br>
+<fieldset>
+    <legend>多窗口设置</legend>
+    数量:<input type="number" id="mulNum" value="2">
+    <br><button onclick="delayOpenMulWindow()">弹出多个窗口</button>
+</fieldset>
+
+<script>
+	var count = 1;
+	var loadNum = "loadNum";
+
+	function doOpenWindow(str){
+		if(!str) str="";
+		var url = "http://www.baidu.com/s?wd="+str+count;
+		count++;
+		var t = window.open(url,"_blank","width=200,height=100");
+		var result = document.getElementById("result");
+		result.innerHTML += url+"<br>";
+	}
+
+	function OpenWindowOnLoad(){
+		var numStr = localStorage.getItem(loadNum);
+		var num = parseInt(numStr);
+		if (!isNaN(num)) {
+  		for (index = 0; index < num; index++) {
+		    	delayOpenWindow();
+		  }
+		}
+	}
+
+	function setWindowOnLoad(){
+		var numStr = document.getElementById(loadNum).value;
+		var num = parseInt(numStr);
+		if (!isNaN(num) && window.localStorage) {
+  		localStorage.setItem(loadNum,num);
+  		location.reload();
+		}
+	}
+	
+	function clearOpenWindowOnLoad(){
+		if(window.localStorage){
+ 		  localStorage.removeItem(loadNum);
+ 		  location.reload();
+	  }
+	}
+
+	function delayOpenWindow(){
+		setTimeout(function(){
+			doOpenWindow();
+		},6000)
+	}
+	
+	function delayOpenMulWindow(){
+		var numStr = document.getElementById("mulNum").value;
+		var num = parseInt(numStr);
+		if (!isNaN(num)) {
+		    for (index = 0; index < num; index++) {
+		    	delayOpenWindow();
+		    }
+		}
+	}
+
+	//OpenWindowOnLoad();
+
+</script>
+<br>
+
+</body></html>
